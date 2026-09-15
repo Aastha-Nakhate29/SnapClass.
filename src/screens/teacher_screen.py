@@ -194,9 +194,9 @@ def teacher_tab_take_attendance():
 
     st.divider()
 
-    # ---------------------------------------------------------
+
     # DISPLAY ADDED PHOTOS
-    # ---------------------------------------------------------
+  
 
     if st.session_state.attendance_images:
 
@@ -222,9 +222,9 @@ def teacher_tab_take_attendance():
 
     c1, c2, c3 = st.columns(3)
 
-    # ---------------------------------------------------------
+    
     # CLEAR PHOTOS
-    # ---------------------------------------------------------
+    
 
     with c1:
 
@@ -240,9 +240,9 @@ def teacher_tab_take_attendance():
 
             st.rerun()
 
-    # ---------------------------------------------------------
+
     # FACE ATTENDANCE
-    # ---------------------------------------------------------
+   
 
     with c2:
 
@@ -262,9 +262,8 @@ def teacher_tab_take_attendance():
                 # each student was detected.
                 all_detected_ids = {}
 
-                # -------------------------------------------------
                 # ANALYZE EVERY PHOTO
-                # -------------------------------------------------
+              
 
                 for idx, img in enumerate(
                     st.session_state.attendance_images
@@ -291,9 +290,9 @@ def teacher_tab_take_attendance():
                                 f"Photo {idx + 1}"
                             )
 
-                # -------------------------------------------------
+                
                 # GET ENROLLED STUDENTS
-                # -------------------------------------------------
+           
 
                 enrolled_res = (
                     supabase
@@ -326,9 +325,9 @@ def teacher_tab_take_attendance():
                         )
                     )
 
-                    # -------------------------------------------------
+                   
                     # CHECK EVERY ENROLLED STUDENT
-                    # -------------------------------------------------
+                 
 
                     for node in enrolled_students:
 
@@ -368,9 +367,9 @@ def teacher_tab_take_attendance():
                             )
                         })
 
-                        # -------------------------------------------------
+                    
                         # ATTENDANCE RECORD
-                        # -------------------------------------------------
+                    
 
                         attendance_to_log.append({
 
@@ -385,19 +384,17 @@ def teacher_tab_take_attendance():
                             )
                         })
 
-                    # -------------------------------------------------
                     # SHOW ATTENDANCE RESULTS
-                    # -------------------------------------------------
+                   
 
                     attendance_result_dialog(
                         pd.DataFrame(results),
                         attendance_to_log
                     )
 
-    # ---------------------------------------------------------
+   
     # VOICE ATTENDANCE
-    # ---------------------------------------------------------
-
+    
     with c3:
 
         if st.button(

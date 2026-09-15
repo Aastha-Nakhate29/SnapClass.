@@ -1,0 +1,14 @@
+
+venv_old/
+
+__pycache__/
+*.pyc
+*.wav
+*.mp3
+
+.streamlit/secrets.toml
+.vscode/
+*.wav
+*.mp3
+__pycache__/
+*.pyc
